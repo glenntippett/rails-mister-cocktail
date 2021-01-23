@@ -11,14 +11,24 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 serialized_ingredients = open(url).read
 ingredients = JSON.parse(serialized_ingredients)
 
-puts 'Cleaning database...'
+puts 'Cleaning Ingredients...'
 Ingredient.destroy_all
 
 puts 'Creating ingredients...'
-
 ingredients['drinks'].each do |ingredient|
   puts "Creating #{ingredient['strIngredient1']}"
   Ingredient.create!(name: ingredient['strIngredient1'])
 end
+puts 'Ingredients done!'
 
-puts 'All done!'
+puts 'Cleaning Cocktails...'
+Cocktail.destroy_all
+
+puts 'Creating cocktails...'
+10.times do
+  cocktail_name = Faker::Movies::StarWars.character
+  puts "Creating #{cocktail_name}"
+  Cocktail.create!(name: cocktail_name)
+end
+
+puts "Cocktails done!"

@@ -1,1 +1,21 @@
-<h1>Welcome to the cocktails page!!!</h1>
+
+<div class="container mt-4">
+  <h1 class="mb-4">All Cocktails (<%= @cocktails.length %>)</h1>
+
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-md-4">
+      <div class="card mb-4" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
+          <p class="card-text">This is a description of the yummy cocktail to make you super thirsty</p>
+          <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
