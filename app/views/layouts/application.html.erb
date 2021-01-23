@@ -12,7 +12,9 @@
 </head>
 
 <body>
-  <%= render 'components/nav' %>
+  <% unless action_name == "home" %>
+    <%= render 'components/nav' %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
