@@ -26,7 +26,7 @@ Cocktail.destroy_all
 
 puts 'Creating cocktails...'
 10.times do
-  cocktail_name = Faker::Movies::StarWars.character
+  cocktail_name = Faker::Movies::HarryPotter.unique.spell
   puts "Creating #{cocktail_name}"
   Cocktail.create!(name: cocktail_name)
 end
