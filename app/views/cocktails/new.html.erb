@@ -2,6 +2,7 @@
   <h1>This is the start of something yummy</h1>
   <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
+  <%= link_to 'Cancel', cocktails_path, class: 'text-danger mr-2' %>
   <%= f.submit "Add Cocktail", class: 'btn btn-primary' %>
   <% end %>
 </div>
