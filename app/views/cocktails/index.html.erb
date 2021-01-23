@@ -8,7 +8,7 @@
       <div class="card mb-4" style="width: 100%;">
         <div class="card-body">
           <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
-          <p class="card-text">This is a description of the yummy cocktail to make you super thirsty</p>
+          <p class="card-text">cocktail.description</p>
           <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
         </div>
       </div>
