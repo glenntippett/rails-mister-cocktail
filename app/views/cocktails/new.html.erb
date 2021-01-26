@@ -3,7 +3,7 @@
   <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= link_to 'Cancel', cocktails_path, class: 'text-danger mr-2' %>
+  <%= link_to 'Cancel', root_path, class: 'text-danger mr-2' %>
   <%= f.submit "Add Cocktail", class: 'btn btn-primary' %>
   <% end %>
 </div>
