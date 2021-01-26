@@ -2,14 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 @font-face {
-  font-family: 'Vintages';
-  src: url('Vintages.ttf');
-  
   font-family: "Bardon Demo";
-  src: url('Bardon Demo.otf');
-
-  font-family: "Bardon Outline Demo";
-  src: url('Bardon Outline Demo.otf');
+  src: font-url('Bardon-Demo.otf');
 }
 
 // Define fonts for body and headers
