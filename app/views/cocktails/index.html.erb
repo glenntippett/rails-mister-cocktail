@@ -8,15 +8,15 @@
 
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-    <div class="col-md-4 d-flex align-items-stretch">
-      <div class="card mb-4 shadow-sm" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
-          <p class="card-text"><%= cocktail.description %></p>
-          <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card mb-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
+            <p class="card-text"><%= cocktail.description %></p>
+            <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
