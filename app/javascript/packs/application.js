@@ -12,6 +12,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 document.addEventListener('turbolinks:load', () => {
+  console.log('hello there');
   AOS.init();
 });
 
