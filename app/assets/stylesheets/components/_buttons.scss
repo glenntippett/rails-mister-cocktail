@@ -18,3 +18,26 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
 }
+
+.btn-homepage {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  color: black;
+  text-decoration: none;
+  animation: btn-fade-in 1s 2s forwards;
+  opacity: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@keyframes btn-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
