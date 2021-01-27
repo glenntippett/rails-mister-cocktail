@@ -20,15 +20,19 @@
 }
 
 .btn-homepage {
-  background-color: white;
+  background-color: #B332AA;
+  border: 1px solid rgb(255, 255, 98);
   padding: 16px;
   border-radius: 4px;
-  color: black;
+  color: white;
   text-decoration: none;
   animation: btn-fade-in 1s 2s forwards;
   opacity: 0;
   &:hover {
     text-decoration: none;
+    color: rgb(255, 255, 98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 }
 

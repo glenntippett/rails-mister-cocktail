@@ -4,17 +4,27 @@
   </div>
 
   <div class="container text-center">
-    <a href="#list-of-cocktails" class="btn-homepage">View Cocktails</a>
+    <a href="#list-of-cocktails" class="btn-homepage">View Menu</a>
+    <%= link_to 'Make My Own', new_cocktail_path, class: 'btn-homepage' %>
   </div>
+
+ <!--  <div class="container text-center">
+    <form action="">
+      <input type="text" placeholder="Search...">
+      <input type="submit">
+    </form>
+  </div> -->
+
 </div>
 
-<div class="container mt-4">
+<div class="index-background">
+  <div class="container">
 
 
   <div class="row" id="list-of-cocktails">
     <% @cocktails.each do |cocktail| %>
     <div class="col-md-4 d-flex align-items-stretch">
-      <div class="card mb-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
+      <div class="card my-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
         <div class="card-body">
           <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
           <p class="card-text"><%= cocktail.description %></p>
@@ -26,3 +36,6 @@
   </div>
   <!-- End of Container -->
 </div>
+</div>
+
+
