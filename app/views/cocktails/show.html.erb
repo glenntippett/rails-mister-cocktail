@@ -1,15 +1,18 @@
 <div class="container mt-4">
   <h1 class="text-center"><%= @cocktail.name.split.map(&:capitalize).join(' ') %></h1>
 
-  <% @cocktail.doses.each do |dose| %>
-  <div class="d-flex">
-  <p><%= link_to dose_path(dose), method: :delete, data: { confirm: "Remove ingredient?" }, class: 'text-muted' do %>
-    <i class="fas fa-trash text-danger mr-3"></i>
+  <% if @cocktail.doses.empty? %>
+    <p>No ingredients yet, add one below</p>
+  <% else %>
+    <% @cocktail.doses.each do |dose| %>
+      <div class="d-flex">
+      <%= link_to dose_path(dose), method: :delete, data: { confirm: "Remove ingredient?" }, class: 'text-muted' do %>
+        <i class="fas fa-trash text-danger mr-3"></i>
+      <% end %>
+      <p><span class="font-weight-bold"><%= dose.description %></span> <span><%= dose.ingredient.name %></span></p>
+      </div>
+    <% end %>
   <% end %>
-  <p class="font-weight-bold"><span><%= dose.description %></span> <span><%= dose.ingredient.name %></span></p>
-  </div>
-
-  <% end %></p>
 
     <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
 
