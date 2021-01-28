@@ -20,26 +20,34 @@
 <div class="index-background">
   <div class="container">
 
+    <!-- app/views/articles/index.html.erb -->
+    <%= cl_image_tag("https://res.cloudinary.com/dukitxith/image/upload/v1611821216/xqrialujcbhwqbkfjodp.jpg",
+    width: 400, height: 300, crop: :fill) %>
 
-  <div class="row" id="list-of-cocktails">
-  <!-- Sort class instances alphabetically by name -->
-  <% @cocktails = @cocktails.sort_by(&:name) %>
+    <!-- for face detection -->
+    <%= cl_image_tag("https://res.cloudinary.com/dukitxith/image/upload/v1611821226/szcq1q3xlk2hlps0lpke.jpg",
+    width: 300, height: 300, crop: :fill) %>
 
-    <!-- Display cocktail instances -->
-    <% @cocktails.each do |cocktail| %>
-    <div class="col-md-4 d-flex align-items-stretch">
-      <div class="card my-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
-        <div class="card-body">
-          <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
-          <p class="card-text"><%= cocktail.description %></p>
-          <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+
+    <div class="row" id="list-of-cocktails">
+      <!-- Sort class instances alphabetically by name -->
+      <% @cocktails = @cocktails.sort_by(&:name) %>
+
+      <!-- Display cocktail instances -->
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card my-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
+            <p class="card-text"><%= cocktail.description %></p>
+            <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
+    <!-- End of Container -->
   </div>
-  <!-- End of Container -->
-</div>
 </div>
 
 

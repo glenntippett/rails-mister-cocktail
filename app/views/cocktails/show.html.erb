@@ -1,22 +1,26 @@
 <div class="container mt-4">
   <h1 class="text-center"><%= @cocktail.name.split.map(&:capitalize).join(' ') %></h1>
 
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
   <% if @cocktail.doses.empty? %>
-    <p>No ingredients yet, add one below</p>
+  <p>No ingredients yet, add one below</p>
   <% else %>
-    <% @cocktail.doses.each do |dose| %>
-      <div class="d-flex">
-      <%= link_to dose_path(dose), method: :delete, data: { confirm: "Remove ingredient?" }, class: 'text-muted' do %>
-        <i class="fas fa-trash text-danger mr-3"></i>
-      <% end %>
-      <p><span class="font-weight-bold"><%= dose.description %></span> <span><%= dose.ingredient.name %></span></p>
-      </div>
+  <% @cocktail.doses.each do |dose| %>
+  <div class="d-flex">
+
+
+    <%= link_to dose_path(dose), method: :delete, data: { confirm: "Remove ingredient?" }, class: 'text-muted' do %>
+    <i class="fas fa-trash text-danger mr-3"></i>
     <% end %>
+    <p><span class="font-weight-bold"><%= dose.description %></span> <span><%= dose.ingredient.name %></span></p>
+  </div>
+  <% end %>
   <% end %>
 
-    <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
+  <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
 
-    <%= link_to 'Delete Cocktail', cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %>
-  </div>
+  <%= link_to 'Delete Cocktail', cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %>
+</div>
 
 
