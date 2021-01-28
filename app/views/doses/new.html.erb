@@ -2,6 +2,7 @@
   <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.input :description, label: "Measurement" %>
   <%= f.association :ingredient %>
+  <%= link_to 'Cancel', cocktail_path(@cocktail), class: 'text-danger mr-2' %>
   <%= f.submit "Add Dose", class: 'btn btn-primary' %>
   <% end %>
 </div>
