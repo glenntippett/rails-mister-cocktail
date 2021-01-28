@@ -20,30 +20,30 @@
 <div class="index-background">
   <div class="container">
 
-    <!-- app/views/articles/index.html.erb -->
-    <%= cl_image_tag("https://res.cloudinary.com/dukitxith/image/upload/v1611821216/xqrialujcbhwqbkfjodp.jpg",
-    width: 400, height: 300, crop: :fill) %>
-
-    <!-- for face detection -->
-    <%= cl_image_tag("https://res.cloudinary.com/dukitxith/image/upload/v1611821226/szcq1q3xlk2hlps0lpke.jpg",
-    width: 300, height: 300, crop: :fill) %>
-
-
     <div class="row" id="list-of-cocktails">
       <!-- Sort class instances alphabetically by name -->
       <% @cocktails = @cocktails.sort_by(&:name) %>
 
       <!-- Display cocktail instances -->
       <% @cocktails.each do |cocktail| %>
-      <div class="col-md-4 d-flex align-items-stretch">
-        <div class="card my-4 shadow-sm" style="width: 100%;" data-aos="zoom-in-up">
-          <div class="card-body">
-            <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
-            <p class="card-text"><%= cocktail.description %></p>
-            <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+        <!-- Dispaly default Picture or picture user has uploaded -->
+        <% cocktail_photo = '' %>
+        <% if cocktail.photo.attached? %>
+          <% cocktail_photo = cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <% cocktail_photo = asset_path 'cocktail.jpg' %>
+        <% end %>
+
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card my-4 shadow-sm card-bg-img text-white"
+            style="width: 100%; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail_photo %>)" data-aos="zoom-in-up">
+            <div class="card-body">
+              <h5 class="card-title"><%= cocktail.name.split.map(&:capitalize).join(' ') %></h5>
+              <p class="card-text"><%= cocktail.description %></p>
+              <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
     <!-- End of Container -->
